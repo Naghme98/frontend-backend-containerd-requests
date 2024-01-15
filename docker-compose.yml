@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  backend1:
+    build:
+      context: ./backend1
+    ports:
+      - "5001:5001"
+    networks:
+      - mynetwork
+
+  backend2:
+    build:
+      context: ./backend2
+    ports:
+      - "5002:5002"
+    networks:
+      - mynetwork
+
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "5000:5000"
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
+    driver: bridge
